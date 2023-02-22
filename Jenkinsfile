@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
       docker.withTool('docker'){
-    docker.withRegistry('repo','dockerhub') { 
+    docker.withRegistry() { 
         app = docker.build("darnattp/test")
     }
 }
