@@ -8,8 +8,12 @@ node {
     }
 
     stage('Build image') {
-  
-       app = docker.build("darnattp/test")
+      docker.withTool('docker'){
+    docker.withRegistry('repo','credentials') { 
+        app = docker.build("darnattp/test")
+    }
+}
+       
     }
 
     stage('Test image') {
